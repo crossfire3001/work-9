@@ -238,6 +238,8 @@
         </div>
       </div>
     </section>
+
+
     <section class="about wow animate__lightSpeedInRight">
       <div class="container mb-5">
         <h2 class="text-center m-5">Ответы на часто задаваемые вопросы</h2>
@@ -303,10 +305,12 @@
         </div>
       </div>
     </section>
+
+
     <section class="order wow animate__flip">
       <div class="col-md-5 m-auto">
         <div class="container mb-5">
-          <h4 class="text-center m-5">Сделать заказ</h4>
+          <h4 class="text-center m-5" id="order">Сделать заказ</h4>
           <form id="form__application">
             <div class="row g-3">
               <div class="col-sm-4">
@@ -353,7 +357,7 @@
               <div class="col-sm-6">
                 <label for="zip" class="form-label">Индекс</label>
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
                   id="zip"
                   placeholder=""
@@ -379,6 +383,11 @@
               </div>
             </div>
           </form>
+          <div class="card d-none order-status" id="order-status">
+            <div class="card-header text-center bg-success text-white m-5">
+              <h5>Ожидайте доставки</h5>
+            </div>
+          </div>
         </div>
       </div>
     </section>

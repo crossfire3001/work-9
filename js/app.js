@@ -20,6 +20,7 @@ $(document).ready(function () {
   $(".accordion").accordion({
     heightStyle: "content",
     header: "> .accordion-item > .accordion-header",
+    collapsible: true
   });
 
   $("#form__application").submit(function (event) {
@@ -30,6 +31,8 @@ $(document).ready(function () {
     var country = $("#country").val();
     var zip = $("#zip").val();
     var address = $("#address").val();
+    var order = $("#order");
+    var orderStatus = $("#order-status");
 
     if (firstName === "") {
       alert("Заполните имя");
@@ -40,15 +43,29 @@ $(document).ready(function () {
     } else if (country === "") {
       alert("Заполните страну");
     } else if (zip === "") {
-      alert("Индекс должен быть заполнен");
+      alert("Индекс не должен быть пустым");
     } else if (!/^\d{6}$/.test(zip)) {
       alert("Индекс должен содержать 6 цифр!");
     } else if (address === "") {
       alert("Заполните адрес");
     } else {
-      alert("Спасибо за заказ!");
-      $("#form__application")[0].submit();
+      order.text("Спасибо за заказ!").addClass("bg-success text-light");
+
+      var selectedEffect = "scale";
+      var options = {};
+
+      if (selectedEffect === "scale") {
+        options = { percent: 50 };
+      }
+      $( "#form__application" ).hide(selectedEffect, options, 1000);
+
+      setTimeout(function() {
+        orderStatus.removeClass( "d-none" ).hide().fadeIn();
+      }, 2000 );
+
+
     }
+
   });
 
   $(".mag").magnificPopup({
