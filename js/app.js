@@ -20,7 +20,7 @@ $(document).ready(function () {
   $(".accordion").accordion({
     heightStyle: "content",
     header: "> .accordion-item > .accordion-header",
-    collapsible: true
+    collapsible: true,
   });
 
   $("#form__application").submit(function (event) {
@@ -57,15 +57,12 @@ $(document).ready(function () {
       if (selectedEffect === "scale") {
         options = { percent: 50 };
       }
-      $( "#form__application" ).hide(selectedEffect, options, 1000);
+      $("#form__application").hide(selectedEffect, options, 1000);
 
-      setTimeout(function() {
-        orderStatus.removeClass( "d-none" ).hide().fadeIn();
-      }, 2000 );
-
-
+      setTimeout(function () {
+        orderStatus.removeClass("d-none").hide().fadeIn();
+      }, 2000);
     }
-
   });
 
   $(".mag").magnificPopup({
